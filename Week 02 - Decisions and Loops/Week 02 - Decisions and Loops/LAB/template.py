@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  :  Nooree Bhugloo
+Lane  :  IT    
+Date  :  03.10.2026
 
 Run it:   python template.py
 
@@ -19,24 +19,43 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
+#label = ""      # replace with an input() call
+#value = 0.0     # replace with an input() call, converted with float()
+#limit = 0.0     # replace with an input() call, converted with float()
+
+while True:
+    label = input("enter a label(or type 'quit' to stop): ")
+    if label == "quit":
+        print("exited from status check")
+        break
+    
+     
+    value = float(input("Enter the used storage: "))
+    limit = float(input("Enter the storage limit: "))
 
 
 # ================================================================== PROCESS
 # 2. Work out the difference and the percentage.       [Typical and above]
 
-difference = 0.0   # replace with your calculation
-percent = 0.0       # replace with your calculation
+    difference = limit - value
+    percent = (value / limit) * 100
+
+#difference = 0.0   # replace with your calculation
+#percent = 0.0       # replace with your calculation
 # 3. Decide a status and store it in a variable called status.
 #
 #    Threshold : if / else        -> "OVER LIMIT" or "OK"
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
 
-status = ""   # replace with your if / else (or if / elif / else)
+##status = ""   # replace with your if / else (or if / elif / else) statement
 
+    if percent >= 100:
+        status = "OVER LIMIT"
+    elif percent >= 90:
+        status = "WARNING"
+    else:
+        status = "OK"
 
 # =================================================================== OUTPUT
 # 4. Print the report.
@@ -48,14 +67,22 @@ status = ""   # replace with your if / else (or if / elif / else)
 #                Keep count of how many came back OVER LIMIT and print that
 #                once, after the loop ends.
 
-print()
-print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
-print("=" * 34)
+
+
+    print()
+    print("=" * 34)
+    print(f"  RECORD CHECK  -  {label}")
+    print("=" * 34)
 
 # your report lines go here
 
-print("=" * 34)
+    print(f"value      : {value:>10.2f}")
+    print(f"limit      : {limit:>10.2f}")
+    print(f"difference : {difference:>10.2f}")
+    print(f"percent    : {percent:>10.2f}%")
+    print(f"status     : {status:>10}")
+
+    print("=" * 34)
 
 
 # ==========================================================================
