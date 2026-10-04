@@ -27,8 +27,8 @@ Delete these instructions as you replace them with your code.
 
 
 label = input("Enter a label: ")
-first = float(input("Enter the first number: "))
-second = float(input("Enter the second number: "))
+first = float(input("Used storage: "))
+second = float(input("Total storage: "))
 
 # ================================================================== PROCESS
 # 2. Work out what you were NOT given.       [Typical and above]
@@ -44,10 +44,7 @@ second = float(input("Enter the second number: "))
 
 difference = first - second
 percent = (first / second) * 100
-print("first value entered: ", first)
-print("second value entered: ", second)
-print("difference: ", difference)
-print("percent: ", percent)
+
 
 # =================================================================== OUTPUT
 # 3. Print the report.
@@ -69,12 +66,15 @@ print("percent: ", percent)
 print()
 print("=" * 34)
 print(f"  RECORD CHECK  -  {label}")
-difference = first - second
+print("=" * 34)
+
+difference = second - first
 percent = (first / second) * 100
-print("first value entered: ",  f"{first:>10.2f}")
-print("second value entered: ", f"{second:>10.2f}")
-print("difference: ",           f"{difference:>10.2f}")
-print("percent: ",              f"{percent:>10.2f}" + "%")
+print(f"Used:     :{first:>10.2f}")
+print(f"Total:    :{second:>10.2f}")
+print(f"Free:     :{difference:>+10.2f}")
+print(f"Percent:  :{percent:>10.2f} %")
+
 print("=" * 34)
 
 

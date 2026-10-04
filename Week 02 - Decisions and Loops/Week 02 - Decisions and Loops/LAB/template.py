@@ -76,9 +76,9 @@ while True:
 
 # your report lines go here
 
-    print(f"value      : {value:>10.2f}")
-    print(f"limit      : {limit:>10.2f}")
-    print(f"difference : {difference:>10.2f}")
+    print(f"Used       : {value:>10.2f}")
+    print(f"Total      : {limit:>10.2f}")
+    print(f"Free       : {difference:>10.2f}")
     print(f"percent    : {percent:>10.2f}%")
     print(f"status     : {status:>10}")
 
