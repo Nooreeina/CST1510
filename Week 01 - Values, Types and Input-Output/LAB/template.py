@@ -2,8 +2,8 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :  NOOREE
-Lane  :  IT      (delete two)
+Name  :  NOOREE BHUGLOO
+Lane  :  IT
 Date  :  26.09.26
 
 Run it:   python template.py
@@ -59,8 +59,6 @@ print("percent: ", percent)
 #    Useful:   f"{value:>10.2f}"    right-aligned, 2 decimal places
 #              f"{value:>+10.2f}"   the same, but always shows the sign
 
-
-
 #quest
 #print()
 #print("=" * 34)
@@ -68,7 +66,7 @@ print("percent: ", percent)
 #print("=" * 34)
 
 # : your report lines go here
-
+print()
 print("=" * 34)
 print(f"  RECORD CHECK  -  {label}")
 difference = first - second
