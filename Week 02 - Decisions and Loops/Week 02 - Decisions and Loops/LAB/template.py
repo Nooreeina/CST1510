@@ -22,7 +22,7 @@ Delete these instructions as you replace them with your code.
 #label = ""      # replace with an input() call
 #value = 0.0     # replace with an input() call, converted with float()
 #limit = 0.0     # replace with an input() call, converted with float()
-
+"""loop the report check until the user enter quit"""
 while True:
     label = input("enter a label(or type 'quit' to stop): ")
     if label == "quit":
@@ -49,7 +49,7 @@ while True:
 #                                     "WARNING" (90% or more), otherwise "OK"
 
 ##status = ""   # replace with your if / else (or if / elif / else) statement
-
+    """determine the status of the report check"""
     if percent >= 100:
         status = "OVER LIMIT"
     elif percent >= 90:
@@ -67,7 +67,7 @@ while True:
 #                Keep count of how many came back OVER LIMIT and print that
 #                once, after the loop ends.
 
-
+    """display the report check"""
 
     print()
     print("=" * 34)
