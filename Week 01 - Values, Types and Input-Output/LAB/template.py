@@ -25,7 +25,7 @@ Delete these instructions as you replace them with your code.
 #first = 0.0     # : replace with an input() call, converted
 #second = 0.0    # : replace with an input() call, converted
 
-
+"""asking the user to enter the label, storage used and the overall storage"""
 label = input("Enter a label: ")
 first = float(input("Used storage: "))
 second = float(input("Total storage: "))
@@ -41,7 +41,7 @@ second = float(input("Total storage: "))
 #quest:
 #difference = 0.0   # 
 #percent = 0.0      # 
-
+"""calculate the difference and the percentage of values entered from the user"""
 difference = first - second
 percent = (first / second) * 100
 
@@ -61,7 +61,7 @@ percent = (first / second) * 100
 #print("=" * 34)
 #print(f"  RECORD CHECK  -  {label}")
 #print("=" * 34)
-
+"""display the report of the storage check"""
 # : your report lines go here
 print()
 print("=" * 34)
