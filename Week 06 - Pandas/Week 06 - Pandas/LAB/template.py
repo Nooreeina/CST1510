@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Nooree Bhugloo
+Lane  : Cyber
+Date  : 08/11/2026
 
 Run it:   python template.py
 
@@ -13,15 +13,14 @@ Delete these instructions as you replace them with your code.
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # ==================================================================== LOAD
 # 1. Read your data file with pd.read_csv(). Make your own CSV, header row
 #    plus at least 5 data rows: label,value,limit (or your lane's own field
 #    names - same shape, different words).
 
-df = None   # replace with pd.read_csv("your_file.csv")
-
-
+df = pd.read_csv(r"C:\Users\Noore\Desktop\CST1510\Week 06 - Pandas\Week 06 - Pandas\LAB\nooree.csv") 
 # ================================================================= PROCESS
 # 2. Add a "percent" column: (value / limit) * 100.
 #
@@ -31,6 +30,13 @@ df = None   # replace with pd.read_csv("your_file.csv")
 # your column(s) go here
 
 
+df["percent"] = (df["failed_logins"] / df["total_attempts"]) * 100 #adding a column for percent
+
+
+#setting conditions for the status column based on the percentage values
+df["status"] = df["percent"].apply(
+    lambda n: "OVER LIMIT" if n >= 100 else "WARNING" if n >= 90 else "OK" 
+)
 # ================================================================== OUTPUT
 # 3. Print the DataFrame.
 #
@@ -41,7 +47,17 @@ df = None   # replace with pd.read_csv("your_file.csv")
 #                the full DataFrame to a new CSV with .to_csv(), and save
 #                one bar chart of the counts per status.
 
-print(df)
+print(df) #displays the full dataframe
+print(df[df["status"] != "OK"]) #displays the rows that are not in the "OK" condition
+print(df["status"].value_counts()) #displays the count for how many times the status is
+
+df["status"].value_counts().plot(kind="bar")#creating a bar chart
+plt.savefig("nooree_status_counts.png") #saving the image
+
+df.to_csv("nooree.csv", index=False) #avoiding the index column
+
+
+
 
 
 # ==========================================================================
