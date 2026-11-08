@@ -19,7 +19,10 @@ import matplotlib.pyplot as plt
 # 1. Read your data file with pd.read_csv(). Make your own CSV, header row
 #    plus at least 5 data rows: label,value,limit (or your lane's own field
 #    names - same shape, different words).
+"""
+reaad the data from csv file 
 
+"""
 df = pd.read_csv(r"C:\Users\Noore\Desktop\CST1510\Week 06 - Pandas\Week 06 - Pandas\LAB\nooree.csv") 
 # ================================================================= PROCESS
 # 2. Add a "percent" column: (value / limit) * 100.
@@ -52,6 +55,7 @@ print(df[df["status"] != "OK"]) #displays the rows that are not in the "OK" cond
 print(df["status"].value_counts()) #displays the count for how many times the status is
 
 df["status"].value_counts().plot(kind="bar")#creating a bar chart
+
 plt.savefig("nooree_status_counts.png") #saving the image
 
 df.to_csv("nooree.csv", index=False) #avoiding the index column
