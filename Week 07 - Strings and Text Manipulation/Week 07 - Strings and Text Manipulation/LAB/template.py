@@ -2,9 +2,9 @@
 RECORD CHECK  -  my version
 ===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
+Name  : Bhugloo Nooree
+Lane  : Cyber
+Date  : 08/11/2026
 
 Run it:   python template.py
 
@@ -23,6 +23,31 @@ Delete these instructions as you replace them with your code.
 
 # your function(s) go here
 
+def parse_line(raw_line):
+    """clean one raw line and return as dict"""
+
+    raw_line = raw_line.strip().lower() #remove spaces
+
+    src, attempts, result = raw_line.split(",")
+
+    return {
+        "src": src.split("=")[1].strip(),
+        "attempts": int(attempts.split("=")[1].strip()),
+        "result": (result.split("=")[1].strip()),
+    }
+
+
+#return the status as percentage
+
+def status_of(attempts, result):
+    """Return status."""
+
+
+    if result == "failed" and attempts >= 10:
+        return "FLAGGED"
+    else:
+        return "OK"
+
 
 # ====================================================================== INPUT
 # 2. Your raw, messy records - at least 5, deliberately varied in spacing
@@ -35,7 +60,14 @@ Delete these instructions as you replace them with your code.
 #    Excellent: save these lines to a file and load them with open() /
 #    a for loop over the file, instead of writing them directly here.
 
-raw_records = []   # replace with your code
+
+
+raw_records = ["SRC=10.0.0.5,ATTEMPTS=12,RESULT=FAILED",
+    "  src = 192.168.1.20 , attempts = 3 , result = success  ",
+    "SRC=172.16.0.9 ,ATTEMPTS=25, RESULT=Failed",
+    "   Src=10.0.0.77,attempts=1,result=SUCCESS",
+    "SRC = 8.8.4.4 , ATTEMPTS = 9 , RESULT = FAILED   ",
+    "src=203.0.113.4,Attempts=40,Result=failed"]   
 
 
 # =============================================================== PROCESS + OUTPUT
@@ -47,7 +79,11 @@ raw_records = []   # replace with your code
 #                how many flagged.
 
 for raw_record in raw_records:
-    pass   # replace with your code
+    record = parse_line(raw_record)
+    status = status_of(record["attempts"], record["result"])
+
+    print(record, "-", status)
+
 
 
 # ==========================================================================
